@@ -6,11 +6,13 @@ Este é um projeto de uma loja online simples utilizando Portugol, desenvolvido 
 
 Equipe:  
 
-	1. Aurelio
-	1. Caíque
-	1. Estevão
-	1. Felipe
-	1. Ícaro
+- [Aurelio](https://github.com/netolamela)
+- [Caíque](https://github.com/caiquelms)
+- [Estevão](https://github.com/Estevao1323)
+- [Felipe](https://github.com/sh9bba)
+- [Ícaro](https://github.com/ikaro460)
+
+ <img src="https://i0.wp.com/turelo.com.br/wp-content/uploads/2019/08/Design-sem-nome-12.png?resize=710%2C480&ssl=1" width="600">
 
 
 
