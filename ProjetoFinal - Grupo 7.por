@@ -49,10 +49,10 @@ programa // projeto final
 								"100.00"} // produto 3 - categoria 3
 								} 
 
-	const inteiro TAMANHO_DO_VETOR[2] = {2, 5}
+	const inteiro TAMANHO_DO_VETOR[2] = {2, 6}
 	
-	cadeia usuariosCadastrados[2][5] = {{"aurelio","caique","estevao","felipe","icaro"}, // usuarios
-								{"123","123","123","123","123"}} // senhas
+	cadeia usuariosCadastrados[2][6] = {{"aurelio","caique","estevao","felipe","icaro","deby"}, // usuarios
+								{"123","123","123","123","123","123"}} // senhas
 	
 	
 	inteiro categoriaEscolhida
@@ -178,7 +178,7 @@ programa // projeto final
 				
 			}
 		}senao{
-			escreva("Login falhou!")
+			escreva("Login Inválido!")
 			u.aguarde(1000)
 		}
 	}
