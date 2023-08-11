@@ -5,6 +5,11 @@ programa // projeto final
 	inclua biblioteca Util --> u
 
 	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
+	const cadeia produtos[3][3] = {{"Parapente", "Paraquedas", "Asadelta"}, // categoria 1
+							{"Trilha", "Escalada", "Sand board"},  // categoria 2
+							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria 3
+
+	const cadeia 
 
 	const inteiro TAMANHO_DO_VETOR[2] = {2, 5}
 	cadeia usuariosCadastrados[2][5] = {{"aurelio","caique","estevao","felipe","icaro"}, // usuarios
@@ -72,7 +77,7 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1489; 
+ * @POSICAO-CURSOR = 441; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
