@@ -4,10 +4,9 @@ programa // projeto final
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Util --> u
 
-	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
-	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asadelta"}, // categoria 1
-							{"Trilha", "Escalada", "Sand board"},  // categoria 2
-							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria 3 
+	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asadelta"}, // categoria AR
+							{"Trilha", "Escalada", "Sand board"},  // categoria TERRA
+							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria AGUA 
 
 	const cadeia INFO_DOS_PRODUTOS[9][3] = {
 								//CATEGORIA 1
@@ -51,8 +50,13 @@ programa // projeto final
 								} 
 
 	const inteiro TAMANHO_DO_VETOR[2] = {2, 5}
+	
 	cadeia usuariosCadastrados[2][5] = {{"aurelio","caique","estevao","felipe","icaro"}, // usuarios
 								{"123","123","123","123","123"}} // senhas
+	
+	
+	inteiro categoriaEscolhida
+	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
 	caracter texto
 	logico loginAutorizado
 
@@ -71,7 +75,8 @@ programa // projeto final
 		leia(usuarioInserido)
 		escreva("\nDigite a senha: ")
 		leia(senhaInserida)
-
+		limpa()
+		
 		para(inteiro i = 0; i < TAMANHO_DO_VETOR[1]; i++){
 			se(usuarioInserido == usuariosCadastrados[0][i] e senhaInserida == usuariosCadastrados[1][i]){
 				loginAutorizado = verdadeiro
@@ -80,19 +85,74 @@ programa // projeto final
 	}
 
 	funcao menuPrincipal(){
-		escreva("Menu principal: Bem vindo ", usuarioInserido, "!\n\n")	
+		escreva("Menu Principal\nBem vindo ", usuarioInserido, "!\n\n")
+		escreva("Categorias disponíveis:\n\n")
+
+		para(inteiro i = 0; i < 3; i++){
+			escolha(i){
+				caso 0:
+					escreva("1. AR - ")
+				pare
+				caso 1:
+					escreva("2. TERRA - ")
+				pare
+				caso 2:
+					escreva("3. ÁGUA - ")
+				pare
+				
+						
+			}
+			para(inteiro j = 0; j < 3; j++){
+				escreva(PRODUTOS[i][j], ", ")
+			}
+			escreva("\n")
+		}
+	}
+
+	funcao menuCategorias(inteiro categoria){
+		escreva("Produtos disponíveis:\n\n")
+		para(inteiro i = 0; i < 3; i++){
+			escreva(PRODUTOS[categoria][i], "\n")
+			para(inteiro j = 0; j < 3; j++){
+				escolha(j){
+					caso 0:
+						escreva("Descrição: ")
+					pare
+					caso 1:
+						escreva("Quantidade: ")
+					pare
+					caso 2:
+						escreva("Preço: ")
+					pare
+				}
+				escolha(categoria){
+					caso 0:
+						escreva("- ", INFO_DOS_PRODUTOS[i][j], "\n")
+					pare
+					caso 1:
+						escreva("- ", INFO_DOS_PRODUTOS[i + 3][j], "\n")
+					pare
+					caso 2:
+						escreva("- ", INFO_DOS_PRODUTOS[i + 6][j], "\n")
+					pare
+				}
+			}
+			escreva("\n")
+		}	
 	}
 	
 	funcao inicio()
 	{
 		escreva("Deseja entrar na loja? \nDigite S para sim ou N para não\n")
 		leia(texto)
+		limpa()
 		se(texto=='N' ou texto=='n'){
 			escreva("Saindo do sistema!")
 		}
 		senao{
 			menuInicial()
 			leia(opcao)
+			limpa()
 		}
 
 		// MENU LOGIN
@@ -103,6 +163,20 @@ programa // projeto final
 		// MENU PRINCIPAL
 		se(loginAutorizado ==  verdadeiro){
 			menuPrincipal()
+			leia(categoriaEscolhida)
+
+			escolha(categoriaEscolhida){
+				caso 1:
+					menuCategorias(0)
+				pare
+				caso 2:
+					menuCategorias(1)
+				pare
+				caso 3:
+					menuCategorias(2)
+				pare
+				
+			}
 		}senao{
 			escreva("Login falhou!")
 			u.aguarde(1000)
@@ -117,9 +191,11 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3341; 
+ 
+ * @POSICAO-CURSOR = 1602; 
+ * @DOBRAMENTO-CODIGO = [53, 62, 69, 86];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {categoria, 112, 31, 9}-{i, 114, 15, 1}-{j, 116, 16, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
