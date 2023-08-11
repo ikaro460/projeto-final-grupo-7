@@ -178,20 +178,22 @@ programa // projeto final
 				
 			}
 		}senao{
-			escreva("\nVolte Sempre!")
+			escreva("Login Inválido!")
 			u.aguarde(1000)
 		}
 	}
 	
+//testegitbash2
+//teste estevao
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2466; 
+ * @POSICAO-CURSOR = 2002; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {usuariosCadastrados, 54, 8, 19}-{i, 80, 15, 1}-{j, 105, 16, 1}-{categoria, 112, 31, 9};
+ * @SIMBOLOS-INSPECIONADOS = {i, 80, 15, 1}-{j, 105, 16, 1}-{categoria, 112, 31, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
