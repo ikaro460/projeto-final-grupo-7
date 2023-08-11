@@ -182,14 +182,14 @@ programa // projeto final
 			u.aguarde(1000)
 		}
 	}
-	
+	// teste aurelio
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4594; 
+ * @POSICAO-CURSOR = 4610; 
  * @DOBRAMENTO-CODIGO = [53, 62, 69, 86];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {i, 80, 15, 1}-{j, 105, 16, 1}-{categoria, 112, 31, 9};
