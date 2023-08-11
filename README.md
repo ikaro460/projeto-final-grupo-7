@@ -16,6 +16,8 @@ Equipe:
 - [Ícaro](https://github.com/ikaro460)
 
 
-https://github.com/ikaro460/projeto-final-grupo-7/assets/141193377/e41b562f-7074-4376-85c8-7867b912e6c1
+
+https://github.com/ikaro460/projeto-final-grupo-7/assets/141193377/caa9fec6-1def-42af-9e1b-5ec88c14f4a5
+
 
 ## 
