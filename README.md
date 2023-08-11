@@ -15,10 +15,4 @@ Equipe:
 
 https://github.com/ikaro460/projeto-final-grupo-7/assets/141193377/e41b562f-7074-4376-85c8-7867b912e6c1
 
-
-
-![LOGO](https://github.com/ikaro460/projeto-final-grupo-7/assets/141193377/bf1c3f15-84cc-410e-a3d1-15540a7660c1) 
-
-
-
 ## 
