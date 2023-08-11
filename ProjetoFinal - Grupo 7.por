@@ -5,11 +5,50 @@ programa // projeto final
 	inclua biblioteca Util --> u
 
 	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
-	const cadeia produtos[3][3] = {{"Parapente", "Paraquedas", "Asadelta"}, // categoria 1
+	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asadelta"}, // categoria 1
 							{"Trilha", "Escalada", "Sand board"},  // categoria 2
-							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria 3
+							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria 3 
 
-	const cadeia 
+	const cadeia INFO_DOS_PRODUTOS[9][3] = {
+								//CATEGORIA 1
+								{"Parapente é um esporte aéreo que consiste em voar com uma asa flexível", 
+								"11", //
+								"300.00"}, // produto 1 - categoria 1
+
+								{"Um paraquedas é um dispositivo usado para diminuir a velocidade de queda de um objeto ou pessoa", 
+								"12",
+								"500.00"},  // produto 2 - categoria 1
+	
+								{"Asa delta é um esporte aéreo em que o piloto é suspenso por uma asa flexível", 
+								"13",
+								"250.00"}, // produto 3 - categoria 1
+
+								//CATEGORIA 2
+								{"Uma trilha de montanha é uma trilha que leva a uma montanha ou outro ponto alto.", 
+								"21",
+								"50.00"}, // produto 1 - categoria 2
+
+								{"Escalada é o ato de subir uma superfície íngreme, como uma montanha, uma falésia ou uma parede.", 
+								"22",
+								"100.00"}, // produto 2 - categoria 2
+
+								{"Sandboard é um esporte que consiste em descer dunas de areia usando uma prancha semelhante a uma prancha de snowboard.", 
+								"23",
+								"100.00"}, // produto 3 - categoria 2
+
+								//CATEGORIA 3
+								{"O rafting é uma atividade aquática que consiste em descer um rio em um bote inflável.", 
+								"31",
+								"100.00"}, // produto 1 - categoria 3
+
+								{"Windsurf é um esporte aquático que consiste em navegar sobre a água usando uma prancha e uma vela.", 
+								"32",
+								"100.00"}, // produto 2 - categoria 3
+
+								{"Stand up paddle (SUP) é um esporte aquático que consiste em remar em pé sobre uma prancha de surf.", 
+								"33",
+								"100.00"} // produto 3 - categoria 3
+								} 
 
 	const inteiro TAMANHO_DO_VETOR[2] = {2, 5}
 	cadeia usuariosCadastrados[2][5] = {{"aurelio","caique","estevao","felipe","icaro"}, // usuarios
@@ -77,7 +116,7 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 441; 
+ * @POSICAO-CURSOR = 654; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
