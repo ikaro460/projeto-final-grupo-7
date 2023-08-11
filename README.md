@@ -1,6 +1,7 @@
 # Elemental Adventures 💧☁️🌱🔥
 
-Este é um projeto de uma loja online simples utilizando Portugol, desenvolvido na disciplina de lógica de programação do curso de residência do Serratec.
+Este é um projeto de uma loja online que venderia pacotes de excursões de vários tipos de passeios radicais.
+É um trabalho simples utilizando Portugol, desenvolvido na disciplina de lógica de programação do curso de residência do Serratec.
 
 
 
