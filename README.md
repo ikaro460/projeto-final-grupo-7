@@ -12,8 +12,8 @@ Equipe:
 - [Felipe](https://github.com/sh9bba)
 - [Ícaro](https://github.com/ikaro460)
 
- <img src="https://i0.wp.com/turelo.com.br/wp-content/uploads/2019/08/Design-sem-nome-12.png?resize=710%2C480&ssl=1" width="600">
 
+![LOGO](https://github.com/ikaro460/projeto-final-grupo-7/assets/141193377/bf1c3f15-84cc-410e-a3d1-15540a7660c1)
 
 
  
