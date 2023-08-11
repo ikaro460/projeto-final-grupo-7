@@ -49,10 +49,10 @@ programa // projeto final
 								"100.00"} // produto 3 - categoria 3
 								} 
 
-	const inteiro TAMANHO_DO_VETOR[2] = {2, 5}
+	const inteiro TAMANHO_DO_VETOR[2] = {2, 6}
 	
-	cadeia usuariosCadastrados[2][5] = {{"aurelio","caique","estevao","felipe","icaro"}, // usuarios
-								{"123","123","123","123","123"}} // senhas
+	cadeia usuariosCadastrados[2][6] = {{"aurelio","caique","estevao","felipe","icaro","deby"}, // usuarios
+								{"123","123","123","123","123","123"}} // senhas
 	
 	
 	inteiro categoriaEscolhida
@@ -178,7 +178,7 @@ programa // projeto final
 				
 			}
 		}senao{
-			escreva("Login falhou!")
+			escreva("\nVolte Sempre!")
 			u.aguarde(1000)
 		}
 	}
@@ -189,10 +189,9 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4594; 
- * @DOBRAMENTO-CODIGO = [53, 62, 69, 86];
+ * @POSICAO-CURSOR = 2466; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {i, 80, 15, 1}-{j, 105, 16, 1}-{categoria, 112, 31, 9};
+ * @SIMBOLOS-INSPECIONADOS = {usuariosCadastrados, 54, 8, 19}-{i, 80, 15, 1}-{j, 105, 16, 1}-{categoria, 112, 31, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
