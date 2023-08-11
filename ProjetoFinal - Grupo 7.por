@@ -183,13 +183,15 @@ programa // projeto final
 		}
 	}
 	
-//testegitbash
+//testegitbash2
+//teste estevao
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
+ 
  * @POSICAO-CURSOR = 1602; 
  * @DOBRAMENTO-CODIGO = [53, 62, 69, 86];
  * @PONTOS-DE-PARADA = ;
