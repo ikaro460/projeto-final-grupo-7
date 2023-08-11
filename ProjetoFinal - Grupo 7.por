@@ -183,19 +183,16 @@ programa // projeto final
 		}
 	}
 	
-//testegitbash2
-//teste estevao
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- 
- * @POSICAO-CURSOR = 1602; 
+ * @POSICAO-CURSOR = 4594; 
  * @DOBRAMENTO-CODIGO = [53, 62, 69, 86];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {categoria, 112, 31, 9}-{i, 114, 15, 1}-{j, 116, 16, 1};
+ * @SIMBOLOS-INSPECIONADOS = {i, 80, 15, 1}-{j, 105, 16, 1}-{categoria, 112, 31, 9};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
