@@ -3,7 +3,7 @@
 Este é um projeto de uma loja online que venderia pacotes de excursões de vários tipos de passeios radicais.
 
 
-É um trabalho simples utilizando Portugol, desenvolvido na disciplina de lógica de programação do curso de residência do Serratec.
+É um trabalho simples utilizando Portugol, desenvolvido na disciplina de Lógica de Programação do curso de residência do Serratec.
 
 
 
