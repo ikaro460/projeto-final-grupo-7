@@ -8,51 +8,58 @@ programa // projeto final
 							{"Trilha", "Escalada", "Sandboard"},  // categoria TERRA
 							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria AGUA 
 
-	const cadeia INFO_DOS_PRODUTOS_AR[3][3] = {
-								//CATEGORIA 1
-								{"Parapente é um esporte aéreo que consiste em voar com uma asa flexível", 
-								"11", //
-								"300.00"}, // produto 1 - categoria 1
+	const cadeia ARTE_DOS_PRODUTOS_AR[3][4] = {
+									  {" /¨¨¨¨¨\\",
+									   "/_______\\",
+									   "  \\   /",
+									   "   \\#/"},
+									   
+									   {"◜¨¨¨¨¨◝",
+									   "(_     _)",
+									   "  \\   /",
+									   "   \\#/"},
+									   
+									   {"_  __  _",
+									   " \\ \\##/ /",
+									   "  \\ \\/ /",
+									   "   \\__/"}
+									   }
+	const cadeia ARTE_DOS_PRODUTOS_TERRA[3][4] = {
+										{"  ◜◝ ",
+										"  (**)",
+										"...)(...",
+										"........"},
 
-								{"Um paraquedas é um dispositivo usado para diminuir a velocidade de queda de um objeto ou pessoa", 
-								"12",
-								"500.00"},  // produto 2 - categoria 1
-	
-								{"Asa delta é um esporte aéreo em que o piloto é suspenso por uma asa flexível", 
-								"13",
-								"250.00"} // produto 3 - categoria 1
-								}
+										{"  .◜◝.",
+										"  /  | \\",
+										" /   |  \\",
+										"/____|___\\"},
+
+										{" _________",
+										" (__#__#___)",
+										" :::::::::::",
+										"            "}
+										}
+	const cadeia ARTE_DOS_PRODUTOS_AGUA [3][4] = {
+										{"__       __",
+										"/  \\_____/  \\",
+										"\\___________/",
+										"~~~~~~~~~~~~~"},
+
+										{"   |\\ ",
+										" ___|_\\___",
+										"(_________)",
+										"~~~~~~~~~~~"},
+
+										{" _________",
+										" (_________)",
+										" ~~~~~~~~~~~",
+										"            "}
+										}
+									   
+									
 								
-	const cadeia INFO_DOS_PRODUTOS_TERRA[3][3] = {
-
-								//CATEGORIA 2
-								{"Uma trilha de montanha é uma trilha que leva a uma montanha ou outro ponto alto.", 
-								"21",
-								"50.00"}, // produto 1 - categoria 2
-
-								{"Escalada é o ato de subir uma superfície íngreme, como uma montanha, uma falésia ou uma parede.", 
-								"22",
-								"100.00"}, // produto 2 - categoria 2
-
-								{"Sandboard é um esporte que consiste em descer dunas de areia usando uma prancha semelhante a uma prancha de snowboard.", 
-								"23",
-								"100.00"} // produto 3 - categoria 2
-								}						
-
-	const cadeia INFO_DOS_PRODUTOS_AGUA[3][3] = {
-								//CATEGORIA 3
-								{"O rafting é uma atividade aquática que consiste em descer um rio em um bote inflável.", 
-								"31",
-								"100.00"}, // produto 1 - categoria 3
-
-								{"Windsurf é um esporte aquático que consiste em navegar sobre a água usando uma prancha e uma vela.", 
-								"32",
-								"100.00"}, // produto 2 - categoria 3
-
-								{"Stand up paddle (SUP) é um esporte aquático que consiste em remar em pé sobre uma prancha de surf.", 
-								"33",
-								"100.00"} // produto 3 - categoria 3
-								}
+	
 
 	// INFO DOS PRODUTOS
 	const inteiro TAMANHO_DO_VETOR_DE_PRODUTOS[2] = {9, 4}
@@ -250,10 +257,10 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6119; 
- * @DOBRAMENTO-CODIGO = [10, 25, 41, 58, 111, 119, 126, 151, 201, 213];
+ * @POSICAO-CURSOR = 1033; 
+ * @DOBRAMENTO-CODIGO = [65, 118, 126, 133, 158, 208, 220];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {categoriaEscolhida, 146, 10, 18}-{produtoEscolhido, 147, 10, 16};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
