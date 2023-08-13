@@ -1,5 +1,14 @@
+
+
 programa // projeto final
 {
+
+/* Elemental Adventures é uma plataforma que oferece aos seus usuários experiências ao ar livre nos mais diversos 
+ *  e icônicos lugares do planeta. 
+ *  Contamos com empresas e guias altamente qualificados e licenciados por órgãos internacionalmente reconhecidos, 
+ *  com o objetivo de promover uma experiência segura e inesquecível aos nossos aventureiros.
+    Junte-se a nós e descubra o que você é capaz de fazer.*/
+
 	inclua biblioteca Texto --> tx
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Util --> u
@@ -447,13 +456,14 @@ programa // projeto final
 					}
 						
 }
+
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 10783; 
- * @DOBRAMENTO-CODIGO = [7, 21, 41, 37, 53, 76, 129, 140, 197, 223, 230, 279, 270, 320, 355, 257, 377, 397, 409];
+ * @POSICAO-CURSOR = 453; 
+ * @DOBRAMENTO-CODIGO = [232, 239, 288, 279, 329, 364, 266, 386, 406, 418];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
