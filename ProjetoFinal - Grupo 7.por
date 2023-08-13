@@ -15,12 +15,12 @@ programa // projeto final
 														"%", "&", "*", "(", ")", "_", "+", "=","[", "]", 
 														"{", "}", ";", ",", "/", "?", "~", " ", "."}
 
-	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asadelta"}, // categoria AR
+	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asa delta"}, // categoria AR
 							{"Trilha", "Escalada", "Sandboard"},  // categoria TERRA
 							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria AGUA 
 
 	const cadeia ARTE_DOS_PRODUTOS_AR[3][4] = {
-									  {" /¨¨¨¨¨\\",
+									  {"/¨¨¨¨¨\\",
 									   "/_______\\",
 									   "  \\   /",
 									   "   \\#/"},
@@ -334,7 +334,7 @@ programa // projeto final
 			se(verificarCaracteresInvalidos(auxProd) == falso){ 
 				
 				//Convertendo cadeia em inteiro
-				categoriaEscolhida = tp.cadeia_para_inteiro(auxProd, 10)
+				produtoEscolhido = tp.cadeia_para_inteiro(auxProd, 10)
 
 				//SEGUNDO TRATAMENTO DE ERRO: Verifica se numero inserido e valido
 				se(produtoEscolhido > 3 ou produtoEscolhido < 1){
@@ -449,10 +449,10 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7526; 
- * @DOBRAMENTO-CODIGO = [7, 17, 21, 41, 37, 53, 76, 129, 140, 197, 223, 257, 377, 397];
+ * @POSICAO-CURSOR = 2060; 
+ * @DOBRAMENTO-CODIGO = [7, 21, 41, 37, 53, 76, 129, 197, 223, 230, 279, 270];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {produto, 398, 36, 7}-{resultado, 400, 10, 9}-{i, 402, 15, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
