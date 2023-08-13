@@ -4,6 +4,17 @@ programa // projeto final
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Util --> u
 
+	const inteiro TAMANHO_DO_VETOR_CARACTERES = 75
+	const cadeia CARACTERES_INVALIDOS[TAMANHO_DO_VETOR_CARACTERES] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
+														"k", "l", "m", "n", "o", "p", "q", "r", "s", "t", 
+														"u", "v", "w", "x", "y", "z",
+														"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
+														"K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", 
+														"U", "V", "W", "X", "Y", "Z",
+														"!", "@", "#", "$", 
+														"%", "&", "*", "(", ")", "_", "+", "=","[", "]", 
+														"{", "}", ";", ",", "/", "?", "~", " ", "."}
+
 	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asadelta"}, // categoria AR
 							{"Trilha", "Escalada", "Sandboard"},  // categoria TERRA
 							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria AGUA 
@@ -124,6 +135,32 @@ programa // projeto final
 	caracter texto
 	logico loginAutorizado
 
+	funcao logico verificarCaracteresInvalidos(cadeia valorInserido){
+		//verifica se o valor inserido contém caracteres invalidos e retorna verdadeiro caso encontre
+
+
+		//Verifica cadeia vazia
+		se(valorInserido == ""){
+			retorne verdadeiro
+		}
+		
+		para(inteiro i = 0; i < TAMANHO_DO_VETOR_CARACTERES; i++){
+				/*
+				Nesse loop iremos percorrer toda o vetor de caracteres invalidos 
+				verificando letra por letra e comparando com o valor inserido.
+				*/
+			se(tx.posicao_texto(CARACTERES_INVALIDOS[i], valorInserido, 0) >= 0){
+				//Esse bloco verifica se contem alguma letra nos valores inseridos
+				retorne verdadeiro
+			}
+				/*
+				A funcao posicao_texto() compara se a cadeia 
+				inserida pelo usuario contem o indice atual do vetor alfabeto.
+				*/
+		}
+		retorne falso
+	}
+
 	funcao menuInicial(){
 		escreva("Escolha uma opção: \n")
 		escreva("1 - Fazer login\n")
@@ -150,47 +187,129 @@ programa // projeto final
 
 	funcao menuPrincipal(){
 
-		inteiro categoriaEscolhida
-		inteiro produtoEscolhido
 		
-		escreva("Menu Principal\nBem vindo ", usuarioInserido, "!\n\n")
-		escreva("Categorias disponíveis:\n\n")
+		inteiro categoriaEscolhida = 0
+		inteiro produtoEscolhido = 0
 
-		para(inteiro i = 0; i < 3; i++){
-			escolha(i){
-				caso 0:
-					escreva("1. Ar\n")
-				pare
+		// auxiliares para tratamento de erros
+		cadeia auxCat
+		cadeia auxProd
+		
+		logico validacao
+		
+		// ESCOLHER CATEGORIA
+		faca{
+
+			validacao = verdadeiro //reseta validacao
+			
+			escreva("Menu Principal\nBem vindo ", usuarioInserido, "!\n\n")
+			escreva("Categorias disponíveis:\n\n")
+
+			
+	
+			para(inteiro i = 0; i < 3; i++){
+				escolha(i){
+					caso 0:
+						escreva("1. Ar\n")
+					pare
+					caso 1:
+						escreva("2. Terra\n")
+					pare
+					caso 2:
+						escreva("3. Água\n")
+					pare							
+				}
+			}
+			leia(auxCat)
+			limpa()
+
+			//PRIMEIRO TRATAMENTO DE ERRO: Verifica se contem caracteres invalidos
+			se(verificarCaracteresInvalidos(auxCat) == falso){
+				
+				//Convertendo cadeia em inteiro
+				categoriaEscolhida = tp.cadeia_para_inteiro(auxCat, 10)
+
+				//SEGUNDO TRATAMENTO DE ERRO: Verifica se numero inserido e valido
+				se(categoriaEscolhida > 3 ou categoriaEscolhida < 1){
+					validacao = falso
+				}
+				
+			}senao{
+				validacao = falso	
+			}
+
+			//Mensagem de erro
+			se(validacao == falso){
+				escreva("Opção inválida!\n")
+				u.aguarde(2000)	
+			}
+			
+		}enquanto(validacao == falso)
+
+		
+		// ESCOLHER PRODUTO
+		faca{
+
+			validacao = verdadeiro //reseta validacao
+			
+			para(inteiro i = 0; i < 3; i++){
+				escreva(i+1, ". ", PRODUTOS[categoriaEscolhida - 1][i], "\n")
+			}
+			escreva("\n")
+	
+			leia(auxProd)
+			limpa()
+
+						//PRIMEIRO TRATAMENTO DE ERRO: Verifica se contem caracteres invalidos
+			se(verificarCaracteresInvalidos(auxProd) == falso){ 
+				
+				//Convertendo cadeia em inteiro
+				categoriaEscolhida = tp.cadeia_para_inteiro(auxProd, 10)
+
+				//SEGUNDO TRATAMENTO DE ERRO: Verifica se numero inserido e valido
+				se(produtoEscolhido > 3 ou produtoEscolhido < 1){
+					validacao = falso
+				}
+				
+			}senao{				
+				validacao = falso
+			}
+
+			//Mensagem de erro
+			se(validacao == falso){
+				escreva("Opção inválida!\n")
+				u.aguarde(2000)
+			}
+		}enquanto(validacao == falso)
+		
+		//ARTE DO PRODUTO
+		para(inteiro i = 0; i < 4; i++){
+			se(i == 0){
+				escreva(" ")
+			}
+			escolha(categoriaEscolhida){
 				caso 1:
-					escreva("2. Terra\n")
-				pare
+					escreva(ARTE_DOS_PRODUTOS_AR[produtoEscolhido-1][i], "\n")
+				pare	
 				caso 2:
-					escreva("3. Água\n")
-				pare							
+					escreva(ARTE_DOS_PRODUTOS_TERRA[produtoEscolhido-1][i], "\n")
+				pare
+				caso 3:
+					escreva(ARTE_DOS_PRODUTOS_AGUA[produtoEscolhido-1][i], "\n")
+				pare
 			}
 		}
-		leia(categoriaEscolhida)
-		limpa()
-		para(inteiro i = 0; i < 3; i++){
-			escreva(i+1, ". ", PRODUTOS[categoriaEscolhida - 1][i], "\n")
-		}
-		escreva("\n")
-
-		leia(produtoEscolhido)
-		limpa()
 
 		//menuProduto(categoriaEscolhida, produtoEscolhido)
-
 		inteiro productId = acharProduto(PRODUTOS[categoriaEscolhida-1][produtoEscolhido-1])
 		menuProduto(productId)
-		
 	}
 
 	funcao menuProduto(inteiro produto){
 		para(inteiro i = 0; i < TAMANHO_DO_VETOR_DE_PRODUTOS[1]; i++){
 			escolha(i){
 				caso 0:
-					escreva("Nome do produto:\n")
+					escreva("\n")
 				pare
 				caso 1:
 					escreva("Descrição:\n")
