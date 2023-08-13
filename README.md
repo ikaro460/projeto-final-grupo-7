@@ -1,9 +1,17 @@
 # Elemental Adventures 💧☁️🌱🔥
 
-Este é um projeto de uma loja online que venderia pacotes de excursões de vários tipos de passeios radicais.
+Introdução
+
+Elemental Adventures é uma plataforma que oferece aos seus usuários experiências ao ar livre nos mais diversos e icônicos lugares do planeta. Contamos com empresas e guias altamente qualificados e licenciados por órgãos internacionalmente reconhecidos, com o objetivo de promover uma experiência segura e inesquecível aos nossos aventureiros.
+Junte se a nós e descubra o que você é capaz de fazer.
 
 
-É um trabalho simples utilizando Portugol, desenvolvido na disciplina de Lógica de Programação do curso de residência do Serratec.
+Tecnologias:
+Portugol Studio
+Trello
+Draw i.o
+Git hub
+
 
 
 
