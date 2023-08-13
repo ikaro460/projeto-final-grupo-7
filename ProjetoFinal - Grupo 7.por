@@ -134,6 +134,66 @@ programa // projeto final
 	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
 	caracter texto
 	logico loginAutorizado
+	const inteiro LINHAS=3,COLUNAS=2
+	cadeia cliente,senhaCadastro,cadastroCliente[LINHAS][COLUNAS]= {{"",""},{"",""},{"",""}}
+	inteiro contador =0 ,op
+
+	funcao cadastro(){
+		
+			
+			para (inteiro i=0; i <LINHAS ; i++){
+		     se (cadastroCliente[i][0] == "" e cadastroCliente[i][1] == "" ) {
+				contador++
+		    }		
+		    }
+		    faca {
+		    		escreva (" Bem vindo (a), você deseja se cadastrar no nosso sistema ?\n Digite 1 para sim e 2 para não : ")
+		    		leia(op)
+		    		limpa()
+		    escolha (op) {
+		    	caso 1 :
+		    		escreva (" Cadastro :\n Digite seu nome :")
+		    		leia (cliente)
+		    		escreva(" Senha :\n Digite uma senha :")
+		    		leia (senhaCadastro)
+		    		limpa()
+		    	para (inteiro i= 0; i<LINHAS; i++){
+		    		se (cadastroCliente[i][0] == "" e cadastroCliente [i][1] == ""){
+		    			cadastroCliente[i][0] = cliente 
+		    			cadastroCliente[i][1] = senhaCadastro 
+		    			escreva(" Usuario cadastrado com sucesso !")
+		    			u.aguarde(1500)
+		    			contador --
+		    			limpa()
+		    			
+		    			
+		    		}
+		    	     pare
+		    	
+		    	}
+		    	
+		    	
+		    caso 2 :
+		    	escreva("Obrigada por utilizar nosso sistema!\n")
+					u.aguarde(1500)
+					limpa()
+					inicio() 
+					pare
+					
+		    	
+		  caso contrario :
+		    	escreva("Opção inválida!\nDigite uma opção válida!")
+					u.aguarde(1500)
+					limpa()
+					pare
+		    	
+		      }		
+		    } enquanto(contador<0)
+		     se(contador ==0)
+		     	escreva (" Cadastro lotado !")
+		     	u.aguarde(1500)
+		     	limpa()
+}
 
 	funcao logico verificarCaracteresInvalidos(cadeia valorInserido){
 		//verifica se o valor inserido contém caracteres invalidos e retorna verdadeiro caso encontre
@@ -182,6 +242,16 @@ programa // projeto final
 			se(usuarioInserido == usuariosCadastrados[0][i] e senhaInserida == usuariosCadastrados[1][i]){
 				loginAutorizado = verdadeiro
 			}
+		}
+		para(inteiro i = 0; i < LINHAS; i++){
+			se(usuarioInserido == cadastroCliente[i][0] e senhaInserida == cadastroCliente[i][1]){
+				loginAutorizado = verdadeiro
+			}
+		}
+		se (loginAutorizado == verdadeiro){
+			escreva(" Login autorizado !")
+			u.aguarde(1000)
+			limpa()
 		}
 	}
 
@@ -359,6 +429,9 @@ programa // projeto final
 		// MENU LOGIN
 		se(opcao == "1"){
 			login()
+			}
+		senao se (opcao=="2"){
+			cadastro()	
 		}
 
 		// MENU PRINCIPAL
@@ -376,8 +449,8 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1033; 
- * @DOBRAMENTO-CODIGO = [65, 118, 126, 133, 158, 208, 220];
+ * @POSICAO-CURSOR = 7526; 
+ * @DOBRAMENTO-CODIGO = [7, 17, 21, 41, 37, 53, 76, 129, 140, 197, 223, 257, 377, 397];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
