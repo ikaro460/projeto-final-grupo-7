@@ -376,10 +376,10 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 4641; 
- * @DOBRAMENTO-CODIGO = [7, 17, 21, 37, 53, 76, 129, 163, 170, 210, 285, 307, 327, 339];
+ * @POSICAO-CURSOR = 1033; 
+ * @DOBRAMENTO-CODIGO = [65, 118, 126, 133, 158, 208, 220];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {i, 147, 15, 1};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
