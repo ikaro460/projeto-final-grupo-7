@@ -22,9 +22,10 @@ programa // projeto final
 														"U", "V", "W", "X", "Y", "Z",
 														"!", "@", "#", "$", 
 														"%", "&", "*", "(", ")", "_", "+", "=","[", "]", 
-														"{", "}", ";", ",", "/", "?", "~", " ", "."}
+														"{", "}", ";", ",", "/", "?", "~", ".", " "}
 
-	const cadeia NUMEROS_INVALIDOS_LOGIN[10] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+	const inteiro TAMANHO_DO_NUMEROS_INVALIDOS = 11
+	const cadeia NUMEROS_INVALIDOS_LOGIN[TAMANHO_DO_NUMEROS_INVALIDOS] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " "}
 
 	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asa delta"}, // categoria AR
 							{"Trilha", "Escalada", "Sandboard"},  // categoria TERRA
@@ -145,7 +146,10 @@ programa // projeto final
 	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
 	caracter texto
 	logico loginAutorizado
-	const cadeia mensagensDeErro[2] = {"O nome de usuario não pode conter números!", "A senha de usuario não pode conter letras!"}
+	const cadeia mensagensDeErro[4] = {"Nome não pode conter espaços vazios!", 
+								"Senha não pode conter espaços vazios!", 
+								"O nome de usuario não pode conter números!", 
+								"A senha de usuario não pode conter letras!"}
 
 	// CADASTRO
 	const inteiro LINHAS=3,COLUNAS=2
@@ -189,14 +193,14 @@ programa // projeto final
 		    		}
 			}senao{
 				escreva(mensagensDeErro[validacaoUsuarioeSenha(cliente, senhaCadastro)])
-				u.aguarde(1000)
+				u.aguarde(2000)
 				limpa()
 			}		
 		}enquanto(contador < 0)
 		
 		se(contador == 0){
-			escreva ("Cadastro lotado !")
-			u.aguarde(1500)
+			escreva ("Cadastro lotado!")
+			u.aguarde(2000)
 			limpa()
 		}
 	}
@@ -236,7 +240,7 @@ programa // projeto final
 			retorne verdadeiro
 		}
 		
-		para(inteiro i = 0; i < 10; i++){
+		para(inteiro i = 0; i < TAMANHO_DO_NUMEROS_INVALIDOS; i++){
 				/*
 				Nesse loop iremos percorrer toda o vetor de caracteres invalidos 
 				verificando letra por letra e comparando com o valor inserido.
@@ -255,10 +259,15 @@ programa // projeto final
 	
 	funcao inteiro validacaoUsuarioeSenha(cadeia verificaUsuario, cadeia verificaSenha){
 
-		se(verificaSeContemNumeros(verificaUsuario) == verdadeiro){
+		
+		se(verificaUsuario == "" ou tx.posicao_texto(" ", verificaUsuario, 0) >= 0){
 			retorne 0
-		}senao se(verificarCaracteresInvalidos(verificaSenha) == verdadeiro){
+		}senao se(verificaSenha == "" ou tx.posicao_texto(" ", verificaUsuario, 0) >= 0){
 			retorne 1
+		}senao se(verificaSeContemNumeros(verificaUsuario) == verdadeiro){
+			retorne 2
+		}senao se(verificarCaracteresInvalidos(verificaSenha) == verdadeiro){
+			retorne 3
 		}
 		
 		retorne -1
@@ -514,10 +523,10 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5244; 
- * @DOBRAMENTO-CODIGO = [16, 28, 32, 48, 64, 87, 140, 153, 203, 229, 255, 266, 273, 340, 331, 381, 416, 318, 438, 458, 470];
+ * @POSICAO-CURSOR = 6332; 
+ * @DOBRAMENTO-CODIGO = [16, 29, 33, 49, 65, 88, 141, 148, 207, 233, 259, 275, 282, 349, 340, 390, 425, 327, 447, 467, 479];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {cadastroCliente, 152, 8, 15};
+ * @SIMBOLOS-INSPECIONADOS = {cadastroCliente, 156, 8, 15};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
