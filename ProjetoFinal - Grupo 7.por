@@ -171,21 +171,27 @@ programa // projeto final
 			escreva(" Senha :\n Digite uma senha :")
 			leia (senhaCadastro)
 			limpa()
-		    			
-		    	para (inteiro i= 0; i<LINHAS; i++){
-		    		//Verifica se a posiçao esta vazia
-		    		se (cadastroCliente[i][0] == "" e cadastroCliente [i][1] == ""){
-		    			//Grava os dados do cliente
-		    			cadastroCliente[i][0] = cliente 
-		    			cadastroCliente[i][1] = senhaCadastro
 
-		    			//Mensagem de sucesso
-		    			escreva("Usuário cadastrado com sucesso!")	
-		    			u.aguarde(1500)
-		    			limpa()
-		    			pare
+			se(validacaoUsuarioeSenha(cliente, senhaCadastro) == -1){
+				para (inteiro i= 0; i<LINHAS; i++){
+			    		//Verifica se a posiçao esta vazia
+			    		se (cadastroCliente[i][0] == "" e cadastroCliente [i][1] == ""){
+			    			//Grava os dados do cliente
+			    			cadastroCliente[i][0] = cliente 
+			    			cadastroCliente[i][1] = senhaCadastro
+	
+			    			//Mensagem de sucesso
+			    			escreva("Usuário cadastrado com sucesso!")	
+			    			u.aguarde(1500)
+			    			limpa()
+			    			pare
+			    		}
 		    		}
-		    	}		
+			}senao{
+				escreva(mensagensDeErro[validacaoUsuarioeSenha(cliente, senhaCadastro)])
+				u.aguarde(1000)
+				limpa()
+			}		
 		}enquanto(contador < 0)
 		
 		se(contador == 0){
@@ -508,8 +514,8 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5288; 
- * @DOBRAMENTO-CODIGO = [16, 28, 32, 48, 64, 87, 140, 197, 223, 249, 260, 267, 334, 325, 375, 410, 312, 432, 452, 464];
+ * @POSICAO-CURSOR = 5244; 
+ * @DOBRAMENTO-CODIGO = [16, 28, 32, 48, 64, 87, 140, 153, 203, 229, 255, 266, 273, 340, 331, 381, 416, 318, 438, 458, 470];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {cadastroCliente, 152, 8, 15};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
