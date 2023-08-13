@@ -24,6 +24,8 @@ programa // projeto final
 														"%", "&", "*", "(", ")", "_", "+", "=","[", "]", 
 														"{", "}", ";", ",", "/", "?", "~", " ", "."}
 
+	const cadeia NUMEROS_INVALIDOS_LOGIN[10] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+
 	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asa delta"}, // categoria AR
 							{"Trilha", "Escalada", "Sandboard"},  // categoria TERRA
 							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria AGUA 
@@ -139,10 +141,13 @@ programa // projeto final
 	cadeia usuariosCadastrados[2][6] = {{"aurelio","caique","estevao","felipe","icaro","deby"}, // usuarios
 								{"123","123","123","123","123","123"}} // senhas
 	
-	
+	// LOGIN
 	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
 	caracter texto
 	logico loginAutorizado
+	const cadeia mensagensDeErro[2] = {"O nome de usuario não pode conter números!", "A senha de usuario não pode conter letras!"}
+
+	// CADASTRO
 	const inteiro LINHAS=3,COLUNAS=2
 	cadeia cliente,senhaCadastro,cadastroCliente[LINHAS][COLUNAS]= {{"",""},{"",""},{"",""}}
 	inteiro contador =0 ,op
@@ -230,6 +235,43 @@ programa // projeto final
 		retorne falso
 	}
 
+	funcao logico verificaSeContemNumeros(cadeia valorInserido){
+		//verifica se o valor inserido contém caracteres invalidos e retorna verdadeiro caso encontre
+
+
+		//Verifica cadeia vazia
+		se(valorInserido == ""){
+			retorne verdadeiro
+		}
+		
+		para(inteiro i = 0; i < 10; i++){
+				/*
+				Nesse loop iremos percorrer toda o vetor de caracteres invalidos 
+				verificando letra por letra e comparando com o valor inserido.
+				*/
+			se(tx.posicao_texto(NUMEROS_INVALIDOS_LOGIN[i], valorInserido, 0) >= 0){
+				//Esse bloco verifica se contem alguma letra nos valores inseridos
+				retorne verdadeiro
+			}
+				/*
+				A funcao posicao_texto() compara se a cadeia 
+				inserida pelo usuario contem o indice atual do vetor alfabeto.
+				*/
+		}
+		retorne falso
+	}
+	
+	funcao inteiro validacaoUsuarioeSenha(cadeia verificaUsuario, cadeia verificaSenha){
+
+		se(verificaSeContemNumeros(verificaUsuario) == verdadeiro){
+			retorne 0
+		}senao se(verificarCaracteresInvalidos(verificaSenha) == verdadeiro){
+			retorne 1
+		}
+		
+		retorne -1
+	}
+
 	funcao menuInicial(){
 		escreva("Escolha uma opção: \n")
 		escreva("1 - Fazer login\n")
@@ -246,19 +288,39 @@ programa // projeto final
 		escreva("\nDigite a senha: ")
 		leia(senhaInserida)
 		limpa()
-		
-		para(inteiro i = 0; i < TAMANHO_DO_VETOR_DE_USUARIOS[1]; i++){
-			se(usuarioInserido == usuariosCadastrados[0][i] e senhaInserida == usuariosCadastrados[1][i]){
-				loginAutorizado = verdadeiro
+
+		se(validacaoUsuarioeSenha(usuarioInserido, senhaInserida) == -1){ //Tratamento de erros
+			
+			//PROCURA USUARIOS CADASTRADOS PREVIAMENTE
+			para(inteiro i = 0; i < TAMANHO_DO_VETOR_DE_USUARIOS[1]; i++){
+				se(usuarioInserido == usuariosCadastrados[0][i] e senhaInserida == usuariosCadastrados[1][i]){
+					loginAutorizado = verdadeiro
+				}senao{
+					escreva("Nome de usuario não encontrado")
+					u.aguarde(1000)
+					limpa()
+				}
 			}
-		}
-		para(inteiro i = 0; i < LINHAS; i++){
-			se(usuarioInserido == cadastroCliente[i][0] e senhaInserida == cadastroCliente[i][1]){
-				loginAutorizado = verdadeiro
+
+			//PROCURA USUARIOS CADASTRADOS POSTERIORMENTE
+			para(inteiro i = 0; i < LINHAS; i++){
+				se(usuarioInserido == cadastroCliente[i][0] e senhaInserida == cadastroCliente[i][1]){
+					loginAutorizado = verdadeiro
+				}senao{
+					escreva("Nome de usuario não encontrado")
+					u.aguarde(1000)
+					limpa()
+				}
 			}
+		}senao{
+			escreva(mensagensDeErro[validacaoUsuarioeSenha(usuarioInserido, senhaInserida)])
+			u.aguarde(1000)
+			limpa()
 		}
+
+		//Login autorizado
 		se (loginAutorizado == verdadeiro){
-			escreva(" Login autorizado !")
+			escreva(" Login autorizado!")
 			u.aguarde(1000)
 			limpa()
 		}
@@ -424,19 +486,19 @@ programa // projeto final
 			escreva("Deseja entrar na loja? \nDigite S para sim ou N para não\n")
 			leia(texto)
 			limpa()
+			
 			se(texto=='N' ou texto=='n'){
 				sairSistema = verdadeiro
-			}
-			senao{
+			}senao{
 				menuInicial()
 				leia(opcao)
 				limpa()
 			}
+
 			// MENU LOGIN
 			se(opcao == "1"){
 				login()
-				}
-			senao se (opcao == "2"){
+			}senao se (opcao == "2"){
 				cadastro()	
 			}
 			
@@ -451,9 +513,9 @@ programa // projeto final
 			}senao se(sairSistema == falso){
 				escreva("Login Inválido!\n")
 				u.aguarde(1000)
-				}
-			}enquanto(sairSistema == falso)
-					}
+			}
+		}enquanto(sairSistema == falso)
+	}
 						
 }
 
@@ -462,8 +524,8 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 453; 
- * @DOBRAMENTO-CODIGO = [232, 239, 288, 279, 329, 364, 266, 386, 406, 418];
+ * @POSICAO-CURSOR = 13692; 
+ * @DOBRAMENTO-CODIGO = [16, 28, 32, 48, 64, 87, 140, 154, 211, 237, 263, 274, 350, 341, 391, 426, 328, 448, 468];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
