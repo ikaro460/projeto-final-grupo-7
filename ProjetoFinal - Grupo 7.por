@@ -407,52 +407,55 @@ programa // projeto final
 		retorne resultado
 	}
 	
-	funcao inicio()
-
-	
-	
-	{
-
+	funcao inicio(){
+		logico sairSistema = falso
+		
+		faca{
 		//escreva(preencherVetorDeProdutos(INFO_DOS_PRODUTOS_AR, 3, 3))
-		escreva("Deseja entrar na loja? \nDigite S para sim ou N para não\n")
-		leia(texto)
-		limpa()
-		se(texto=='N' ou texto=='n'){
-			escreva("Saindo do sistema!")
-		}
-		senao{
-			menuInicial()
-			leia(opcao)
+			escreva("Deseja entrar na loja? \nDigite S para sim ou N para não\n")
+			leia(texto)
 			limpa()
-		}
-
-		// MENU LOGIN
-		se(opcao == "1"){
-			login()
+			se(texto=='N' ou texto=='n'){
+				sairSistema = verdadeiro
 			}
-		senao se (opcao=="2"){
-			cadastro()	
-		}
-
-		// MENU PRINCIPAL
-		se(loginAutorizado ==  verdadeiro){
-			menuPrincipal()
-		}senao{
-			escreva("Login Inválido!")
-			u.aguarde(1000)
-		}
-	}
-	// teste aurelio
+			senao{
+				menuInicial()
+				leia(opcao)
+				limpa()
+			}
+			// MENU LOGIN
+			se(opcao == "1"){
+				login()
+				}
+			senao se (opcao == "2"){
+				cadastro()	
+			}
+			
+			senao{ 
+				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
+			pare
+			}
+			                            
+			// MENU PRINCIPAL
+			se(loginAutorizado ==  verdadeiro){
+				menuPrincipal()
+			}senao se(sairSistema == falso){
+				escreva("Login Inválido!\n")
+				u.aguarde(1000)
+				}
+			}enquanto(sairSistema == falso)
+					}
+						
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2060; 
- * @DOBRAMENTO-CODIGO = [7, 21, 41, 37, 53, 76, 129, 197, 223, 230, 279, 270];
+ * @POSICAO-CURSOR = 10783; 
+ * @DOBRAMENTO-CODIGO = [7, 21, 41, 37, 53, 76, 129, 140, 197, 223, 230, 279, 270, 320, 355, 257, 377, 397, 409];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {produto, 398, 36, 7}-{resultado, 400, 10, 9}-{i, 402, 15, 1};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
