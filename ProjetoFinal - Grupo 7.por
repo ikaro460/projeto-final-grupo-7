@@ -416,7 +416,6 @@ programa // projeto final
 			leia(texto)
 			limpa()
 			se(texto=='N' ou texto=='n'){
-				escreva("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
 				sairSistema = verdadeiro
 			}
 			senao{
@@ -428,27 +427,33 @@ programa // projeto final
 			se(opcao == "1"){
 				login()
 				}
-			senao se (opcao=="2"){
+			senao se (opcao == "2"){
 				cadastro()	
 			}
-	
+			
+			senao{ 
+				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
+			pare
+			}
+			                            
 			// MENU PRINCIPAL
 			se(loginAutorizado ==  verdadeiro){
 				menuPrincipal()
 			}senao se(sairSistema == falso){
-				escreva("Login Inválido!")
+				escreva("Login Inválido!\n")
 				u.aguarde(1000)
 				}
-		}enquanto(sairSistema == falso)
-		}
+			}enquanto(sairSistema == falso)
+					}
+						
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 11430; 
- * @DOBRAMENTO-CODIGO = [7, 21, 41, 37, 53, 76, 129, 140, 197, 223, 230, 279, 270, 320, 355, 257, 377, 397];
+ * @POSICAO-CURSOR = 10783; 
+ * @DOBRAMENTO-CODIGO = [7, 21, 41, 37, 53, 76, 129, 140, 197, 223, 230, 279, 270, 320, 355, 257, 377, 397, 409];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
