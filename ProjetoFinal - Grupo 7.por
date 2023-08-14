@@ -33,6 +33,27 @@ programa
 							{"Trilha", "Escale o Monte Fuji", "Surf de areia no Saara"},  // categoria TERRA
 							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria AGUA 
 
+	
+	//ARTES
+	const inteiro TAMANHO_DA_LOGO = 6
+	const cadeia LOGO_DA_LOJA[2][TAMANHO_DA_LOGO] = {
+												{"         ___        ",
+											     "        /   \\      ",
+											     "    _  /     \\  _  ",
+											     "   / \\/       \\/ \\",
+											     "  /  /         \\  \\",
+											     " /                 \\"
+												},
+												{"         ___        ",
+											     "        /   \\      ",
+											     "    _  /     \\  _  ",
+											     "   / \\/       \\/ \\",
+											     "  /  /         \\  \\",
+											     " /                 \\"
+												}
+										
+											}
+										
 	const cadeia ARTE_DOS_PRODUTOS_AR[3][4] = {
 									  {"/¨¨¨¨¨\\",
 									   "/_______\\",
@@ -173,6 +194,14 @@ programa
 		
 		CÓDIGO \/
 	*/
+
+	funcao logoDaLoja(){
+		para(inteiro i = 0; i < TAMANHO_DA_LOGO; i++){
+			escreva(LOGO_DA_LOJA[0][i], "\n")
+		}
+
+		escreva("\nElemental Adventures\n\n")
+	}
 
 	funcao opcaoInvalida(){
 		escreva ("Opção inválida!\n\n")
@@ -424,6 +453,9 @@ programa
 		logico validacao
 		logico validacaoCatProg
 
+		//LOGO DA LOJA
+		logoDaLoja()
+
 		faca{
 			//ESCOLHER CATEGORIA
 			menuEscolherCategoria()
@@ -646,6 +678,9 @@ programa
 		soundtrack = s.carregar_som("soundtrack.mp3")
 		s.reproduzir_som(soundtrack, verdadeiro)
 		s.definir_volume(30)
+
+		//LOGO DA LOJA
+		logoDaLoja()
 		
 		
 		faca{
@@ -719,8 +754,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 18060; 
- * @DOBRAMENTO-CODIGO = [18, 31, 35, 51, 67, 86, 139, 146, 176, 182, 193, 219, 245, 261, 268, 328, 394, 417, 453, 473, 438, 499, 580, 578, 572, 630, 668];
+ * @POSICAO-CURSOR = 13996; 
+ * @DOBRAMENTO-CODIGO = [18, 31, 56, 72, 88, 107, 160, 167, 197, 205, 211, 222, 248, 274, 290, 297, 357, 423, 485, 505, 470, 531, 612, 610, 604, 662, 703];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
