@@ -13,6 +13,7 @@ programa
 	inclua biblioteca Texto --> tx
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Util --> u
+	inclua biblioteca Sons --> s
 
 	const inteiro TAMANHO_DO_VETOR_CARACTERES = 75
 	const cadeia CARACTERES_INVALIDOS[TAMANHO_DO_VETOR_CARACTERES] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
@@ -157,6 +158,10 @@ programa
 
 	//Menu Escolher Categoria
 	inteiro categoriaEscolhida = 0 , produtoEscolhido = 0
+
+	//soundtrack
+	inteiro soundtrack
+
 	
 
 	/*
@@ -168,6 +173,12 @@ programa
 		
 		CÓDIGO \/
 	*/
+
+	funcao opcaoInvalida(){
+		escreva ("Opção inválida!\n\n")
+		tresPontos()
+		limpa()
+	}
 
 	funcao tresPontos(){
 		u.aguarde(250)
@@ -607,12 +618,10 @@ programa
 						validacao = verdadeiro
 						sairSistema = verdadeiro
 					}senao{
-						escreva("Opção inválida!")
-						tresPontos()
+						opcaoInvalida()
 					}
 				}senao{
-					escreva("Opção inválida!")
-					tresPontos()
+					opcaoInvalida()
 				}
 			}	
 		}enquanto(validacao == falso)
@@ -632,6 +641,12 @@ programa
 	}
 	
 	funcao inicio(){
+
+		//MÚSICA DE FUNDO
+		soundtrack = s.carregar_som("soundtrack.mp3")
+		s.reproduzir_som(soundtrack, verdadeiro)
+		s.definir_volume(40)
+		
 		
 		faca{
 			sairSistema = falso
@@ -641,27 +656,50 @@ programa
 			leia(texto)
 			limpa()
 
-			//Verifica resposta
+			//TRATAMENTO DE ERROS - Primeira tela
+			//Se resposta diferente de "N" ou "n" ou "S" ou "s" escreve opcao invalida.
 			se(texto=='N' ou texto=='n'){
 				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
 				tresPontos()
+				
+				//ENCERRA O PROGRAMA
 				pare
-			}senao{
+
+			//ENTRA NO LOGIN
+			}senao se (texto=='S' ou texto=='s'){
 				menuInicial()
 				leia(opcao)
 				limpa()
+
+				//TRATAMENTO DE ERROS - Segunda tela
+				se(verificarCaracteresInvalidos(opcao) == falso){
+					inteiro auxErr
+
+					//Converte
+					auxErr = tp.cadeia_para_inteiro(opcao, 10)
+					
+					// MENU LOGIN
+					se(opcao == "1"){
+						login()
+					}senao se (opcao == "2"){
+						cadastro()	
+					}senao se(opcao == "3"){ 
+						escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
+						tresPontos()
+						
+						//ENCERRA O PROGRAMA
+						pare
+					}senao{
+						opcaoInvalida()
+					}
+				}senao{
+					opcaoInvalida()
+				}
+
+			}senao{
+				opcaoInvalida()
 			}
 
-			// MENU LOGIN
-			se(opcao == "1"){
-				login()
-			}senao se (opcao == "2"){
-				cadastro()	
-			}senao{ 
-				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
-				tresPontos()
-				pare
-			}
 			                            
 			// MENU PRINCIPAL
 			se(loginAutorizado ==  verdadeiro){
@@ -681,8 +719,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 0; 
- * @DOBRAMENTO-CODIGO = [17, 30, 34, 50, 66, 85, 138, 145, 171, 182, 208, 234, 250, 257, 317, 383, 406, 427, 488, 569, 567, 561, 621, 633];
+ * @POSICAO-CURSOR = 16750; 
+ * @DOBRAMENTO-CODIGO = [18, 31, 35, 51, 67, 86, 139, 146, 176, 182, 193, 219, 245, 261, 268, 328, 394, 417, 453, 473, 438, 499, 580, 578, 572, 630, 668];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
