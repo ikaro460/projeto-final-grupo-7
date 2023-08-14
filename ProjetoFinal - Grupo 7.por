@@ -29,8 +29,8 @@ programa
 	const inteiro TAMANHO_DO_NUMEROS_INVALIDOS = 11
 	const cadeia NUMEROS_INVALIDOS_LOGIN[TAMANHO_DO_NUMEROS_INVALIDOS] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " "}
 
-	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asa delta"}, // categoria AR
-							{"Trilha", "Escalada", "Sandboard"},  // categoria TERRA
+	const cadeia PRODUTOS[3][3] = {{"Parapente sobre a Lagoa Azul da Turquia", "Queda livre sobre Dubai a 120 milhas por hora", "Asa delta"}, // categoria AR
+							{"Trilha", "Escale o Monte Fuji", "Surf de areia no Saara"},  // categoria TERRA
 							{"Rafting", "Windsurf", "Stand up paddle"}} // categoria AGUA 
 
 	const cadeia ARTE_DOS_PRODUTOS_AR[3][4] = {
@@ -85,52 +85,52 @@ programa
 	// INFO DOS PRODUTOS
 	const inteiro TAMANHO_DO_VETOR_DE_PRODUTOS[2] = {9, 4}
 	const cadeia INFO_DOS_PRODUTOS[9][4] = {
-										{"Parapente",
-										"Parapente é um esporte aéreo que consiste em voar com uma asa flexível", 
+										{"Parapente sobre a Lagoa Azul da Turquia",
+										"Oludeniz tem uma das praias mais bonitas da Turquia, com praias de seixos e uma 'lagoa azul' de tons aquáticos. \nA praia também é um dos melhores lugares do mundo para parapente, graças ao clima estável e vistas panorâmicas deslumbrantes.", 
 										"11", //
-										"R$ 1285.99"}, // produto 1 - categoria 1
+										"R$ 390.00"}, // produto 1 - categoria 1
 
-										{"Paraquedas",
-										"Um paraquedas é um dispositivo usado para diminuir a velocidade de queda de um objeto ou pessoa", 
+										{"Queda livre sobre Dubai a 120 milhas por hora",
+										"Skydive Dubai é uma empresa localizada perto de Jumeirah Beach, oferecendo paraquedismo \nduplo para iniciantes e saltos solo para praticantes licenciados. \nSe você achava que o horizonte de Dubai já era impressionante, espere até vê-lo enquanto cai de 13.000 pés no ar.", 
 										"12",
-										"R$ 500.00"},  // produto 2 - categoria 1
+										"R$ 3200.00"},  // produto 2 - categoria 1
 		
 										{"Asa delta",
-										"Asa delta é um esporte aéreo em que o piloto é suspenso por uma asa flexível", 
+										"O Rio de Janeiro tem algumas das paisagens mais deslumbrantes do mundo, e este é um lugar \népico para planejar uma viagem de asa delta. \nAqui você encontrará colinas encantadoras, praias, marcos icônicos e ruas coloridas. Muitos voos de asa delta partem da Pedra Bonita, na Floresta da Tijuca.", 
 										"13",
-										"R$ 250.00"}, // produto 3 - categoria 1
+										"R$ 500.00"}, // produto 3 - categoria 1
 
 																//CATEGORIA 2
 										{"Trilha",
-										"Uma trilha de montanha é uma trilha que leva a uma montanha ou outro ponto alto.", 
+										"A natureza selvagem do Canada oferece a clássica trilha da Costa Oeste que cobre 47 milhas \nao redor do sul da Ilha de Vancouver, com paisagens oceânicas deslumbrantes em “Bonilla Point” e cavernas marinhas acessíveis em “Owen Point”.", 
 										"21",
-										"R$ 50.00"}, // produto 1 - categoria 2
+										"R$ 348.00"}, // produto 1 - categoria 2
 	
-										{"Escalada",
-										"Escalada é o ato de subir uma superfície íngreme, como uma montanha, uma falésia ou uma parede.", 
+										{"Escale o Monte Fuji",
+										"O Solitário Monte Fuji é provavelmente a maravilha natural mais icônica do Japão, \nerguendo-se 12.388 pés acima das aldeias e refletindo nas superfícies dos lagos.", 
 										"22",
-										"R$ 100.00"}, // produto 2 - categoria 2
+										"R$ 5345.00"}, // produto 2 - categoria 2
 
-										{"Sandboard",
-										"Sandboard é um esporte que consiste em descer dunas de areia usando uma prancha semelhante a uma prancha de snowboard.", 
+										{"Surf de areia no Saara",
+										"As dunas do Saara são colossais, intocadas e feitas sob medida para esportes radicais. \nAs fileiras de barchans do deserto (que significa 'dunas em forma de meia-lua' em turco)\n têm formas ideais para o surf de areia (descendo as encostas em uma prancha de surf) e sandboard (descendo as encostas em um snowboard).", 
 										"23",
-										"R$ 100.00"}, // produto 3 - categoria 2
+										"R$ 202.65"}, // produto 3 - categoria 2
 
 										//CATEGORIA 3
 										{"Rafting",
-										"O rafting é uma atividade aquática que consiste em descer um rio em um bote inflável.", 
+										"O Canadá é o lar de vários destinos de rafting excepcionais, mas o rio Magpie, no leste da província de Quebec, \npode ser o melhor. A aventura começa com um vôo de hidroavião sobre o Lago Magpie, \nque é seguido por uma descida de 6 a 8 dias do próprio rio.", 
 										"31",
-										"R$ 100.00"}, // produto 1 - categoria 3
+										"R$ 430.00"}, // produto 1 - categoria 3
 
 										{"Windsurf",
-										"Windsurf é um esporte aquático que consiste em navegar sobre a água usando uma prancha e uma vela.", 
+										"Experimente windsurf e desfrute de uma vista deslumbrante da praia de Jericoacoara!", 
 										"32",
-										"R$ 100.00"}, // produto 2 - categoria 3
+										"R$ 312,00"}, // produto 2 - categoria 3
 
 										{"Stand up paddle",
-										"Stand up paddle (SUP) é um esporte aquático que consiste em remar em pé sobre uma prancha de surf.", 
+										"Experimente stand-up paddle e desfrute de uma vista deslumbrante do lago de Genebra!", 
 										"33",
-										"R$ 100.00"} // produto 3 - categoria 3
+										"R$ 152,99"} // produto 3 - categoria 3
 
 										
 									}
@@ -645,7 +645,7 @@ programa
 		//MÚSICA DE FUNDO
 		soundtrack = s.carregar_som("soundtrack.mp3")
 		s.reproduzir_som(soundtrack, verdadeiro)
-		s.definir_volume(40)
+		s.definir_volume(30)
 		
 		
 		faca{
@@ -719,7 +719,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 16750; 
+ * @POSICAO-CURSOR = 18060; 
  * @DOBRAMENTO-CODIGO = [18, 31, 35, 51, 67, 86, 139, 146, 176, 182, 193, 219, 245, 261, 268, 328, 394, 417, 453, 473, 438, 499, 580, 578, 572, 630, 668];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
