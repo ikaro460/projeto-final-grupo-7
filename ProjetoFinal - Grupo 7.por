@@ -270,6 +270,7 @@ programa // projeto final
 			//Volta a tela inicial
 			se(usuarioInserido == "" e senhaInserida == ""){
 				escreva("Voltando ao tela inicial")
+				tresPontos()
 				pare
 			}
 	
@@ -563,7 +564,7 @@ programa // projeto final
 			limpa()
 			
 			se(texto=='N' ou texto=='n'){
-				sairSistema = verdadeiro
+				pare
 			}senao{
 				menuInicial()
 				leia(opcao)
@@ -596,8 +597,8 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 11014; 
- * @DOBRAMENTO-CODIGO = [16, 29, 33, 49, 65, 88, 141, 148, 167, 178, 204, 230, 246, 253, 380, 425, 416, 466, 501, 403, 523, 543, 555];
+ * @POSICAO-CURSOR = 14695; 
+ * @DOBRAMENTO-CODIGO = [16, 29, 33, 49, 65, 88, 141, 148, 167, 178, 204, 230, 246, 253, 313, 381, 426, 417, 467, 502, 404, 524, 544, 556];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
