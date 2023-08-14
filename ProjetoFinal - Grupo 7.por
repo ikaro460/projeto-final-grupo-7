@@ -22,9 +22,10 @@ programa // projeto final
 														"U", "V", "W", "X", "Y", "Z",
 														"!", "@", "#", "$", 
 														"%", "&", "*", "(", ")", "_", "+", "=","[", "]", 
-														"{", "}", ";", ",", "/", "?", "~", " ", "."}
+														"{", "}", ";", ",", "/", "?", "~", ".", " "}
 
-	const cadeia NUMEROS_INVALIDOS_LOGIN[10] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+	const inteiro TAMANHO_DO_NUMEROS_INVALIDOS = 11
+	const cadeia NUMEROS_INVALIDOS_LOGIN[TAMANHO_DO_NUMEROS_INVALIDOS] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", " "}
 
 	const cadeia PRODUTOS[3][3] = {{"Parapente", "Paraquedas", "Asa delta"}, // categoria AR
 							{"Trilha", "Escalada", "Sandboard"},  // categoria TERRA
@@ -145,69 +146,35 @@ programa // projeto final
 	cadeia usuario, usuarioCerto, senha, senhaCerta, confirma, opcao = "", usuarioInserido, senhaInserida
 	caracter texto
 	logico loginAutorizado
-	const cadeia mensagensDeErro[2] = {"O nome de usuario não pode conter números!", "A senha de usuario não pode conter letras!"}
+	const cadeia mensagensDeErro[4] = {"Nome não pode conter espaços vazios!", 
+								"Senha não pode conter espaços vazios!", 
+								"O nome de usuario não pode conter números!", 
+								"A senha de usuario não pode conter letras!"}
 
 	// CADASTRO
 	const inteiro LINHAS=3,COLUNAS=2
-	cadeia cliente,senhaCadastro,cadastroCliente[LINHAS][COLUNAS]= {{"",""},{"",""},{"",""}}
-	inteiro contador =0 ,op
+	cadeia cadastroCliente[LINHAS][COLUNAS]= {{"",""},{"",""},{"",""}}
 
-	funcao cadastro(){
+	/*
+		CONSTANTES E VARIÁVEIS /\
+
 		
-			
-			para (inteiro i=0; i <LINHAS ; i++){
-		     se (cadastroCliente[i][0] == "" e cadastroCliente[i][1] == "" ) {
-				contador++
-		    }		
-		    }
-		    faca {
-		    		escreva (" Bem vindo (a), você deseja se cadastrar no nosso sistema ?\n Digite 1 para sim e 2 para não : ")
-		    		leia(op)
-		    		limpa()
-		    escolha (op) {
-		    	caso 1 :
-		    		escreva (" Cadastro :\n Digite seu nome :")
-		    		leia (cliente)
-		    		escreva(" Senha :\n Digite uma senha :")
-		    		leia (senhaCadastro)
-		    		limpa()
-		    	para (inteiro i= 0; i<LINHAS; i++){
-		    		se (cadastroCliente[i][0] == "" e cadastroCliente [i][1] == ""){
-		    			cadastroCliente[i][0] = cliente 
-		    			cadastroCliente[i][1] = senhaCadastro 
-		    			escreva(" Usuario cadastrado com sucesso !")
-		    			u.aguarde(1500)
-		    			contador --
-		    			limpa()
-		    			
-		    			
-		    		}
-		    	     pare
-		    	
-		    	}
-		    	
-		    	
-		    caso 2 :
-		    	escreva("Obrigada por utilizar nosso sistema!\n")
-					u.aguarde(1500)
-					limpa()
-					inicio() 
-					pare
-					
-		    	
-		  caso contrario :
-		    	escreva("Opção inválida!\nDigite uma opção válida!")
-					u.aguarde(1500)
-					limpa()
-					pare
-		    	
-		      }		
-		    } enquanto(contador<0)
-		     se(contador ==0)
-		     	escreva (" Cadastro lotado !")
-		     	u.aguarde(1500)
-		     	limpa()
-}
+------------------------------------------------------------------------------
+		
+		
+		CÓDIGO \/
+	*/
+
+	funcao tresPontos(){
+		u.aguarde(250)
+		escreva(".")
+		u.aguarde(250)
+		escreva(".")
+		u.aguarde(250)
+		escreva(".")
+		u.aguarde(250)
+		limpa()	
+	}
 
 	funcao logico verificarCaracteresInvalidos(cadeia valorInserido){
 		//verifica se o valor inserido contém caracteres invalidos e retorna verdadeiro caso encontre
@@ -244,7 +211,7 @@ programa // projeto final
 			retorne verdadeiro
 		}
 		
-		para(inteiro i = 0; i < 10; i++){
+		para(inteiro i = 0; i < TAMANHO_DO_NUMEROS_INVALIDOS; i++){
 				/*
 				Nesse loop iremos percorrer toda o vetor de caracteres invalidos 
 				verificando letra por letra e comparando com o valor inserido.
@@ -263,10 +230,15 @@ programa // projeto final
 	
 	funcao inteiro validacaoUsuarioeSenha(cadeia verificaUsuario, cadeia verificaSenha){
 
-		se(verificaSeContemNumeros(verificaUsuario) == verdadeiro){
+		
+		se(verificaUsuario == "" ou tx.posicao_texto(" ", verificaUsuario, 0) >= 0){
 			retorne 0
-		}senao se(verificarCaracteresInvalidos(verificaSenha) == verdadeiro){
+		}senao se(verificaSenha == "" ou tx.posicao_texto(" ", verificaUsuario, 0) >= 0){
 			retorne 1
+		}senao se(verificaSeContemNumeros(verificaUsuario) == verdadeiro){
+			retorne 2
+		}senao se(verificarCaracteresInvalidos(verificaSenha) == verdadeiro){
+			retorne 3
 		}
 		
 		retorne -1
@@ -280,52 +252,156 @@ programa // projeto final
 	}
 
 	funcao login(){
-
-		loginAutorizado = falso
 		
-		escreva("\nDigite o usuario: ")
-		leia(usuarioInserido)
-		escreva("\nDigite a senha: ")
-		leia(senhaInserida)
-		limpa()
+		faca{
 
-		se(validacaoUsuarioeSenha(usuarioInserido, senhaInserida) == -1){ //Tratamento de erros
-			
-			//PROCURA USUARIOS CADASTRADOS PREVIAMENTE
-			para(inteiro i = 0; i < TAMANHO_DO_VETOR_DE_USUARIOS[1]; i++){
-				se(usuarioInserido == usuariosCadastrados[0][i] e senhaInserida == usuariosCadastrados[1][i]){
-					loginAutorizado = verdadeiro
-				}senao{
-					escreva("Nome de usuario não encontrado")
-					u.aguarde(1000)
-					limpa()
-				}
-			}
 
-			//PROCURA USUARIOS CADASTRADOS POSTERIORMENTE
-			para(inteiro i = 0; i < LINHAS; i++){
-				se(usuarioInserido == cadastroCliente[i][0] e senhaInserida == cadastroCliente[i][1]){
-					loginAutorizado = verdadeiro
-				}senao{
-					escreva("Nome de usuario não encontrado")
-					u.aguarde(1000)
-					limpa()
-				}
-			}
-		}senao{
-			escreva(mensagensDeErro[validacaoUsuarioeSenha(usuarioInserido, senhaInserida)])
-			u.aguarde(1000)
+			//reseta loginAutorizado
+			loginAutorizado = falso
+
+			escreva("LOGIN\n\n<-- Aperte enter duas vezes para voltar a tela inicial\n\n")
+		
+			escreva("\nDigite o usuario: ")
+			leia(usuarioInserido)
+			escreva("\nDigite a senha: ")
+			leia(senhaInserida)
 			limpa()
+
+			//Volta a tela inicial
+			se(usuarioInserido == "" e senhaInserida == ""){
+				escreva("Voltando ao tela inicial")
+				tresPontos()
+				pare
+			}
+	
+			se(validacaoUsuarioeSenha(usuarioInserido, senhaInserida) == -1){ //Tratamento de erros
+				
+				//PROCURA USUARIOS CADASTRADOS PREVIAMENTE
+				para(inteiro i = 0; i < TAMANHO_DO_VETOR_DE_USUARIOS[1]; i++){
+					se(usuarioInserido == usuariosCadastrados[0][i] e senhaInserida == usuariosCadastrados[1][i]){
+						loginAutorizado = verdadeiro
+					}
+				}
+	
+				//PROCURA USUARIOS CADASTRADOS POSTERIORMENTE
+				para(inteiro i = 0; i < LINHAS; i++){
+					se(usuarioInserido == cadastroCliente[i][0] e senhaInserida == cadastroCliente[i][1]){
+						loginAutorizado = verdadeiro
+					}
+				}
+	
+				se(loginAutorizado == falso){
+					escreva("Nome de usuario não encontrado!")
+					u.aguarde(1000)
+					limpa()	
+				}
+			}senao{
+				escreva(mensagensDeErro[validacaoUsuarioeSenha(usuarioInserido, senhaInserida)])
+				u.aguarde(1000)
+				limpa()
+			}
+	
+			//Login autorizado
+			se (loginAutorizado == verdadeiro){
+				escreva(" Login autorizado!")
+				u.aguarde(1000)
+				limpa()
+			}
+
+		}enquanto(loginAutorizado == falso)
+	}
+
+	funcao cadastro(){
+		
+		//contador de espaços livres
+		cadeia cliente, senhaCadastro
+		inteiro contador = 0
+		logico usuarioCadastrado = falso
+		
+		//Conta os espaços livres
+		para (inteiro i=0; i <LINHAS ; i++){
+			se (cadastroCliente[i][0] == "" e cadastroCliente[i][1] == "" ){
+				contador++
+			}		
 		}
+		
+		faca{
 
-		//Login autorizado
-		se (loginAutorizado == verdadeiro){
-			escreva(" Login autorizado!")
-			u.aguarde(1000)
+			escreva("CADASTRO\n\n<-- Aperte enter duas vezes para voltar a tela inicial\n\n")
+			
+			//Recebe os dados do cliente
+			escreva ("Digite seu nome :")
+			leia (cliente)
+			escreva("Digite uma senha :")
+			leia (senhaCadastro)
 			limpa()
+
+			se(cliente == "" ou senhaCadastro == ""){
+				escreva("Voltando a tela inicial")
+				tresPontos()
+				pare
+			}
+			
+
+			se(validacaoUsuarioeSenha(cliente, senhaCadastro) == -1){
+				para (inteiro i= 0; i<LINHAS; i++){
+			    		//Verifica se a posiçao esta vazia
+			    		se (cadastroCliente[i][0] == "" e cadastroCliente [i][1] == ""){
+			    			//Grava os dados do cliente
+			    			cadastroCliente[i][0] = cliente 
+			    			cadastroCliente[i][1] = senhaCadastro
+
+			    			//Altera o valor de usuarioCadastrado
+			    			usuarioCadastrado = verdadeiro
+	
+			    			//Mensagem de sucesso
+			    			escreva("Usuário cadastrado com sucesso!")	
+			    			u.aguarde(1500)
+			    			limpa()
+			    			pare
+			    		}
+		    		}
+			}senao{
+				escreva(mensagensDeErro[validacaoUsuarioeSenha(cliente, senhaCadastro)])
+				u.aguarde(2000)
+				limpa()
+			}
+
+			
+		}enquanto(contador >= 0 e usuarioCadastrado == falso)
+		
+		se(contador == 0){
+			escreva ("Cadastro lotado!")
+			u.aguarde(2000)
+			limpa()
+		}senao se(usuarioCadastrado == verdadeiro){
+			menuDesejaLogin()
 		}
 	}
 
+	funcao menuDesejaLogin(){
+		cadeia desejaLogin
+		faca{
+			//MENU DESEJA LOGIN
+			escreva("Deseja fazer o login?\n\n1.Sim\n2.Não")
+			leia(desejaLogin)
+			limpa()
+
+			//Tratamento de erros
+			se(verificarCaracteresInvalidos(desejaLogin) == falso e desejaLogin != ""){	
+				inteiro aux = tp.cadeia_para_inteiro(desejaLogin, 10)
+
+				//Verifica opcao escolhida
+				se(aux == 1){
+					login()
+					pare
+				}senao{
+					pare
+				}
+			}
+		}enquanto(1 > 0)//loop infinito
+	}
+	
 	funcao menuPrincipal(){
 
 		
@@ -488,7 +564,7 @@ programa // projeto final
 			limpa()
 			
 			se(texto=='N' ou texto=='n'){
-				sairSistema = verdadeiro
+				pare
 			}senao{
 				menuInicial()
 				leia(opcao)
@@ -510,9 +586,6 @@ programa // projeto final
 			// MENU PRINCIPAL
 			se(loginAutorizado ==  verdadeiro){
 				menuPrincipal()
-			}senao se(sairSistema == falso){
-				escreva("Login Inválido!\n")
-				u.aguarde(1000)
 			}
 		}enquanto(sairSistema == falso)
 	}
@@ -524,8 +597,8 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 13692; 
- * @DOBRAMENTO-CODIGO = [16, 28, 32, 48, 64, 87, 140, 154, 211, 237, 263, 274, 350, 341, 391, 426, 328, 448, 468];
+ * @POSICAO-CURSOR = 14695; 
+ * @DOBRAMENTO-CODIGO = [16, 29, 33, 49, 65, 88, 141, 148, 167, 178, 204, 230, 246, 253, 313, 381, 426, 417, 467, 502, 404, 524, 544, 556];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
