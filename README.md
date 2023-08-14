@@ -23,15 +23,6 @@ Draw i.o
 Git hub
 
 
-
-- [Aurelio](https://github.com/netolamela)
-- [Caíque](https://github.com/caiquelms)
-- [Estevão](https://github.com/Estevao1323)
-- [Felipe](https://github.com/sh9bba)
-- [Ícaro](https://github.com/ikaro460)
-
-
-
 Equipe:  
 
 - [Aurelio](https://github.com/netolamela)
