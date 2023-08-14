@@ -12,17 +12,6 @@ Trello
 Draw i.o
 Git hub
 
-Elemental Adventures é uma plataforma que oferece aos seus usuários experiências ao ar livre nos mais diversos e icônicos lugares do planeta. Contamos com empresas e guias altamente qualificados e licenciados por órgãos internacionalmente reconhecidos, com o objetivo de promover uma experiência segura e inesquecível aos nossos aventureiros.
-Junte se a nós e descubra o que você é capaz de fazer.
-
-
-Tecnologias:
-Portugol Studio
-Trello
-Draw i.o
-Git hub
-
-
 Equipe:  
 
 - [Aurelio](https://github.com/netolamela)
