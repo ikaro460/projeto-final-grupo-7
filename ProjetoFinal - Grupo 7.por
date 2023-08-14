@@ -1,14 +1,15 @@
-
-
-programa // projeto final
+programa
 {
+	/*	
+	Elemental Adventures é uma plataforma que oferece aos seus usuários experiências ao ar livre nos mais diversos 
+	e icônicos lugares do planeta. 
+	
+	Contamos com empresas e guias altamente qualificados e licenciados por órgãos internacionalmente reconhecidos, 
+ 	com o objetivo de promover uma experiência segura e inesquecível aos nossos aventureiros.
+ 	Junte-se a nós e descubra o que você é capaz de fazer.
+	*/
 
-/* Elemental Adventures é uma plataforma que oferece aos seus usuários experiências ao ar livre nos mais diversos 
- *  e icônicos lugares do planeta. 
- *  Contamos com empresas e guias altamente qualificados e licenciados por órgãos internacionalmente reconhecidos, 
- *  com o objetivo de promover uma experiência segura e inesquecível aos nossos aventureiros.
-    Junte-se a nós e descubra o que você é capaz de fazer.*/
-
+	//BIBLIOTECAS
 	inclua biblioteca Texto --> tx
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Util --> u
@@ -80,10 +81,6 @@ programa // projeto final
 										"            "}
 										}
 									   
-									
-								
-	
-
 	// INFO DOS PRODUTOS
 	const inteiro TAMANHO_DO_VETOR_DE_PRODUTOS[2] = {9, 4}
 	const cadeia INFO_DOS_PRODUTOS[9][4] = {
@@ -154,6 +151,13 @@ programa // projeto final
 	// CADASTRO
 	const inteiro LINHAS=3,COLUNAS=2
 	cadeia cadastroCliente[LINHAS][COLUNAS]= {{"",""},{"",""},{"",""}}
+
+	//Sair do sistema
+	logico sairSistema = falso, voltarAoMenuAnterior = falso
+
+	//Menu Escolher Categoria
+	inteiro categoriaEscolhida = 0 , produtoEscolhido = 0
+	
 
 	/*
 		CONSTANTES E VARIÁVEIS /\
@@ -259,7 +263,7 @@ programa // projeto final
 			//reseta loginAutorizado
 			loginAutorizado = falso
 
-			escreva("LOGIN\n\n<-- Aperte enter duas vezes para voltar a tela inicial\n\n")
+			escreva("<-- Aperte enter duas vezes para voltar a tela inicial\n\nLOGIN\n\n")
 		
 			escreva("\nDigite o usuario: ")
 			leia(usuarioInserido)
@@ -327,7 +331,7 @@ programa // projeto final
 		
 		faca{
 
-			escreva("CADASTRO\n\n<-- Aperte enter duas vezes para voltar a tela inicial\n\n")
+			escreva("<-- Aperte enter duas vezes para voltar a tela inicial\n\nCADASTRO\n\n")
 			
 			//Recebe os dados do cliente
 			escreva ("Digite seu nome :")
@@ -337,8 +341,6 @@ programa // projeto final
 			limpa()
 
 			se(cliente == "" ou senhaCadastro == ""){
-				escreva("Voltando a tela inicial")
-				tresPontos()
 				pare
 			}
 			
@@ -383,7 +385,7 @@ programa // projeto final
 		cadeia desejaLogin
 		faca{
 			//MENU DESEJA LOGIN
-			escreva("Deseja fazer o login?\n\n1.Sim\n2.Não")
+			escreva("Deseja fazer o login?\n\n1.Sim\n2.Não\n")
 			leia(desejaLogin)
 			limpa()
 
@@ -404,17 +406,31 @@ programa // projeto final
 	
 	funcao menuPrincipal(){
 
-		
-		inteiro categoriaEscolhida = 0
-		inteiro produtoEscolhido = 0
-
 		// auxiliares para tratamento de erros
 		cadeia auxCat
 		cadeia auxProd
 		
 		logico validacao
+		logico validacaoCatProg
+
+		faca{
+			//ESCOLHER CATEGORIA
+			menuEscolherCategoria()
+			
+			// ESCOLHER PRODUTO
+			se(sairSistema == falso){
+				menuEscolherProduto()
+			}
+		}enquanto(voltarAoMenuAnterior == verdadeiro e sairSistema == falso)
+	
+	}
+
+	funcao menuEscolherCategoria(){
+		// auxiliar para tratamento de erros
+		cadeia auxCat
+		logico validacao
 		
-		// ESCOLHER CATEGORIA
+		
 		faca{
 
 			validacao = verdadeiro //reseta validacao
@@ -422,9 +438,9 @@ programa // projeto final
 			escreva("Menu Principal\nBem vindo ", usuarioInserido, "!\n\n")
 			escreva("Categorias disponíveis:\n\n")
 
-			
-	
-			para(inteiro i = 0; i < 3; i++){
+
+			//Escreve opcoes na tela
+			para(inteiro i = 0; i < 4; i++){
 				escolha(i){
 					caso 0:
 						escreva("1. Ar\n")
@@ -434,7 +450,10 @@ programa // projeto final
 					pare
 					caso 2:
 						escreva("3. Água\n")
-					pare							
+					pare
+					caso 3:
+						escreva("\n\n4. Sair (Logout)\n")
+					pare						
 				}
 			}
 			leia(auxCat)
@@ -447,8 +466,10 @@ programa // projeto final
 				categoriaEscolhida = tp.cadeia_para_inteiro(auxCat, 10)
 
 				//SEGUNDO TRATAMENTO DE ERRO: Verifica se numero inserido e valido
-				se(categoriaEscolhida > 3 ou categoriaEscolhida < 1){
+				se(categoriaEscolhida > 4 ou categoriaEscolhida < 1){
 					validacao = falso
+				}senao se(categoriaEscolhida == 4){
+					sairSistema = verdadeiro
 				}
 				
 			}senao{
@@ -458,21 +479,27 @@ programa // projeto final
 			//Mensagem de erro
 			se(validacao == falso){
 				escreva("Opção inválida!\n")
-				u.aguarde(2000)	
+				u.aguarde(2000)
+				limpa()	
 			}
 			
 		}enquanto(validacao == falso)
+	}
 
+	funcao menuEscolherProduto(){
+		// auxiliares para tratamento de erros
+		cadeia auxProd
+		logico validacao
 		
-		// ESCOLHER PRODUTO
 		faca{
+			voltarAoMenuAnterior = falso
 
 			validacao = verdadeiro //reseta validacao
 			
 			para(inteiro i = 0; i < 3; i++){
 				escreva(i+1, ". ", PRODUTOS[categoriaEscolhida - 1][i], "\n")
 			}
-			escreva("\n")
+			escreva("\n4. Voltar ao menu anterior\n5. Sair (Logout)\n")
 	
 			leia(auxProd)
 			limpa()
@@ -484,8 +511,12 @@ programa // projeto final
 				produtoEscolhido = tp.cadeia_para_inteiro(auxProd, 10)
 
 				//SEGUNDO TRATAMENTO DE ERRO: Verifica se numero inserido e valido
-				se(produtoEscolhido > 3 ou produtoEscolhido < 1){
+				se(produtoEscolhido > 5 ou produtoEscolhido < 1){
 					validacao = falso
+				}senao se(produtoEscolhido == 4){
+					voltarAoMenuAnterior = verdadeiro
+				}senao se(produtoEscolhido == 5){
+					sairSistema = verdadeiro	
 				}
 				
 			}senao{				
@@ -496,50 +527,96 @@ programa // projeto final
 			se(validacao == falso){
 				escreva("Opção inválida!\n")
 				u.aguarde(2000)
+				limpa()
 			}
 		}enquanto(validacao == falso)
-		
-		//ARTE DO PRODUTO
-		para(inteiro i = 0; i < 4; i++){
-			se(i == 0){
-				escreva(" ")
+
+		//Verifica se usuario selecionou para sair do sistema
+		se(sairSistema == falso e voltarAoMenuAnterior == falso){
+
+			//ARTE DO PRODUTO
+			para(inteiro i = 0; i < 4; i++){
+				se(i == 0){
+					escreva(" ")
+				}
+				escolha(categoriaEscolhida){
+					caso 1:
+						escreva(ARTE_DOS_PRODUTOS_AR[produtoEscolhido-1][i], "\n")
+					pare	
+					caso 2:
+						escreva(ARTE_DOS_PRODUTOS_TERRA[produtoEscolhido-1][i], "\n")
+					pare
+					caso 3:
+						escreva(ARTE_DOS_PRODUTOS_AGUA[produtoEscolhido-1][i], "\n")
+					pare
+				}
 			}
-			escolha(categoriaEscolhida){
-				caso 1:
-					escreva(ARTE_DOS_PRODUTOS_AR[produtoEscolhido-1][i], "\n")
-				pare	
-				caso 2:
-					escreva(ARTE_DOS_PRODUTOS_TERRA[produtoEscolhido-1][i], "\n")
-				pare
-				caso 3:
-					escreva(ARTE_DOS_PRODUTOS_AGUA[produtoEscolhido-1][i], "\n")
-				pare
-			}
+			
+			//menuProduto(categoriaEscolhida, produtoEscolhido)
+			inteiro productId = acharProduto(PRODUTOS[categoriaEscolhida-1][produtoEscolhido-1])
+			menuProduto(productId)
 		}
 
-		//menuProduto(categoriaEscolhida, produtoEscolhido)
-		inteiro productId = acharProduto(PRODUTOS[categoriaEscolhida-1][produtoEscolhido-1])
-		menuProduto(productId)
 	}
-
+	
 	funcao menuProduto(inteiro produto){
-		para(inteiro i = 0; i < TAMANHO_DO_VETOR_DE_PRODUTOS[1]; i++){
-			escolha(i){
-				caso 0:
-					escreva("\n")
-				pare
-				caso 1:
-					escreva("Descrição:\n")
-				pare
-				caso 2:
-					escreva("Quantidade:\n")
-				pare
-				caso 3:
-					escreva("Preço:\n")
-				pare
+
+		cadeia opcaoEscolhida
+		inteiro auxMenuProd
+		logico validacao = falso
+
+		faca{
+			//Escreve as informacoes do produto
+			para(inteiro i = 0; i < TAMANHO_DO_VETOR_DE_PRODUTOS[1]; i++){
+				escolha(i){
+					caso 0:
+						escreva("\n")
+					pare
+					caso 1:
+						escreva("Descrição:\n")
+					pare
+					caso 2:
+						escreva("Quantidade:\n")
+					pare
+					caso 3:
+						escreva("Preço:\n")
+					pare
+				}
+				escreva(INFO_DOS_PRODUTOS[produto][i], "\n\n")
 			}
-			escreva(INFO_DOS_PRODUTOS[produto][i], "\n\n")
-		}
+			
+			//Menu
+			escreva("\n1. Voltar ao menu anterior\n2. Sair (Logout)\n\n")
+			leia(opcaoEscolhida)
+			limpa()
+	
+			//Verifica se opcao inserida contem caracteres
+			se(verificarCaracteresInvalidos(opcaoEscolhida) == falso){
+	
+				//Converte
+				auxMenuProd = tp.cadeia_para_inteiro(opcaoEscolhida, 10)
+				
+				//Valida e direciona o usuario para a opcao escolhida
+				se(auxMenuProd > 0 e auxMenuProd < 3){
+					se(auxMenuProd == 1){
+						//1. Voltar
+						validacao = verdadeiro
+						voltarAoMenuAnterior = verdadeiro
+					}senao se(auxMenuProd == 2){
+						//2. Sair
+						validacao = verdadeiro
+						sairSistema = verdadeiro
+					}senao{
+						escreva("Opção inválida!")
+						tresPontos()
+					}
+				}senao{
+					escreva("Opção inválida!")
+					tresPontos()
+				}
+			}	
+		}enquanto(validacao == falso)
+		
 	}
 	
 	funcao inteiro acharProduto(cadeia produto){
@@ -555,15 +632,19 @@ programa // projeto final
 	}
 	
 	funcao inicio(){
-		logico sairSistema = falso
 		
 		faca{
-		//escreva(preencherVetorDeProdutos(INFO_DOS_PRODUTOS_AR, 3, 3))
+			sairSistema = falso
+			
+			//Tela inicial
 			escreva("Deseja entrar na loja? \nDigite S para sim ou N para não\n")
 			leia(texto)
 			limpa()
-			
+
+			//Verifica resposta
 			se(texto=='N' ou texto=='n'){
+				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
+				tresPontos()
 				pare
 			}senao{
 				menuInicial()
@@ -576,18 +657,21 @@ programa // projeto final
 				login()
 			}senao se (opcao == "2"){
 				cadastro()	
-			}
-			
-			senao{ 
+			}senao{ 
 				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
-			pare
+				tresPontos()
+				pare
 			}
 			                            
 			// MENU PRINCIPAL
 			se(loginAutorizado ==  verdadeiro){
-				menuPrincipal()
+				faca{
+					menuPrincipal()
+					escreva("Voltando a tela inicial")
+					tresPontos()
+				}enquanto(sairSistema == falso)
 			}
-		}enquanto(sairSistema == falso)
+		}enquanto(2 > 1)
 	}
 						
 }
@@ -597,8 +681,8 @@ programa // projeto final
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 14695; 
- * @DOBRAMENTO-CODIGO = [16, 29, 33, 49, 65, 88, 141, 148, 167, 178, 204, 230, 246, 253, 313, 381, 426, 417, 467, 502, 404, 524, 544, 556];
+ * @POSICAO-CURSOR = 0; 
+ * @DOBRAMENTO-CODIGO = [17, 30, 34, 50, 66, 85, 138, 145, 171, 182, 208, 234, 250, 257, 317, 383, 406, 427, 488, 569, 567, 561, 621, 633];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
