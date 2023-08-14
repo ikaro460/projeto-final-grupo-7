@@ -13,6 +13,7 @@ programa
 	inclua biblioteca Texto --> tx
 	inclua biblioteca Tipos --> tp
 	inclua biblioteca Util --> u
+	inclua biblioteca Sons --> s
 
 	const inteiro TAMANHO_DO_VETOR_CARACTERES = 75
 	const cadeia CARACTERES_INVALIDOS[TAMANHO_DO_VETOR_CARACTERES] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
@@ -157,6 +158,10 @@ programa
 
 	//Menu Escolher Categoria
 	inteiro categoriaEscolhida = 0 , produtoEscolhido = 0
+
+	//soundtrack
+	inteiro soundtrack
+
 	
 
 	/*
@@ -636,6 +641,12 @@ programa
 	}
 	
 	funcao inicio(){
+
+		//MÚSICA DE FUNDO
+		soundtrack = s.carregar_som("soundtrack.mp3")
+		s.reproduzir_som(soundtrack, verdadeiro)
+		s.definir_volume(40)
+		
 		
 		faca{
 			sairSistema = falso
@@ -708,8 +719,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5708; 
- * @DOBRAMENTO-CODIGO = [17, 30, 34, 50, 66, 85, 138, 145, 171, 177, 188, 214, 240, 256, 263, 323, 389, 412, 448, 468, 433, 494, 575, 625, 657, 637];
+ * @POSICAO-CURSOR = 16750; 
+ * @DOBRAMENTO-CODIGO = [18, 31, 35, 51, 67, 86, 139, 146, 176, 182, 193, 219, 245, 261, 268, 328, 394, 417, 453, 473, 438, 499, 580, 578, 572, 630, 668];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
