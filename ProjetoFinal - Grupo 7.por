@@ -169,6 +169,12 @@ programa
 		CÓDIGO \/
 	*/
 
+	funcao opcaoInvalida(){
+		escreva ("Opção inválida!\n\n")
+		tresPontos()
+		limpa()
+	}
+
 	funcao tresPontos(){
 		u.aguarde(250)
 		escreva(".")
@@ -607,12 +613,10 @@ programa
 						validacao = verdadeiro
 						sairSistema = verdadeiro
 					}senao{
-						escreva("Opção inválida!")
-						tresPontos()
+						opcaoInvalida()
 					}
 				}senao{
-					escreva("Opção inválida!")
-					tresPontos()
+					opcaoInvalida()
 				}
 			}	
 		}enquanto(validacao == falso)
@@ -641,27 +645,50 @@ programa
 			leia(texto)
 			limpa()
 
-			//Verifica resposta
+			//TRATAMENTO DE ERROS - Primeira tela
+			//Se resposta diferente de "N" ou "n" ou "S" ou "s" escreve opcao invalida.
 			se(texto=='N' ou texto=='n'){
 				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
 				tresPontos()
+				
+				//ENCERRA O PROGRAMA
 				pare
-			}senao{
+
+			//ENTRA NO LOGIN
+			}senao se (texto=='S' ou texto=='s'){
 				menuInicial()
 				leia(opcao)
 				limpa()
+
+				//TRATAMENTO DE ERROS - Segunda tela
+				se(verificarCaracteresInvalidos(opcao) == falso){
+					inteiro auxErr
+
+					//Converte
+					auxErr = tp.cadeia_para_inteiro(opcao, 10)
+					
+					// MENU LOGIN
+					se(opcao == "1"){
+						login()
+					}senao se (opcao == "2"){
+						cadastro()	
+					}senao se(opcao == "3"){ 
+						escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
+						tresPontos()
+						
+						//ENCERRA O PROGRAMA
+						pare
+					}senao{
+						opcaoInvalida()
+					}
+				}senao{
+					opcaoInvalida()
+				}
+
+			}senao{
+				opcaoInvalida()
 			}
 
-			// MENU LOGIN
-			se(opcao == "1"){
-				login()
-			}senao se (opcao == "2"){
-				cadastro()	
-			}senao{ 
-				escreva ("Saindo do sistema!\nObrigado,Volte sempre!\n\n")
-				tresPontos()
-				pare
-			}
 			                            
 			// MENU PRINCIPAL
 			se(loginAutorizado ==  verdadeiro){
@@ -681,8 +708,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 0; 
- * @DOBRAMENTO-CODIGO = [17, 30, 34, 50, 66, 85, 138, 145, 171, 182, 208, 234, 250, 257, 317, 383, 406, 427, 488, 569, 567, 561, 621, 633];
+ * @POSICAO-CURSOR = 5708; 
+ * @DOBRAMENTO-CODIGO = [17, 30, 34, 50, 66, 85, 138, 145, 171, 177, 188, 214, 240, 256, 263, 323, 389, 412, 448, 468, 433, 494, 575, 625, 657, 637];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
